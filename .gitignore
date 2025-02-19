@@ -39,3 +39,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore downloaded Maven binaries
+apache-maven-*-bin.tar.gz
+
+# Ignore .DS_Store (macOS system files)
+.DS_Store
+
