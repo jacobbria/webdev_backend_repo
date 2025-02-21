@@ -46,3 +46,5 @@ apache-maven-*-bin.tar.gz
 # Ignore .DS_Store (macOS system files)
 .DS_Store
 
+.mvn/wrapper/maven-wrapper.jar
+
