@@ -48,3 +48,5 @@ apache-maven-*-bin.tar.gz
 
 .mvn/wrapper/maven-wrapper.jar
 
+# Ignore application.properties
+/application.properties
