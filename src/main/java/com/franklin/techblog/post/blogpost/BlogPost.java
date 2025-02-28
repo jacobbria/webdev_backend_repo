@@ -37,10 +37,4 @@ public class BlogPost {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User author;
-
-    @OneToMany(mappedBy = "blogPost", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> commentList;
-
-
-
 }
