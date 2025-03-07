@@ -13,6 +13,7 @@ public class UserDto {
 
     @NotEmpty(message = "Email address can not be a null or empty")
     @Email(message = "Email address should be a valid value")
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@franklin\\.edu$", message = "Please use a franklin.edu email address")
     private String email;
 
 

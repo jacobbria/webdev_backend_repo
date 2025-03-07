@@ -6,6 +6,7 @@ import com.franklin.techblog.Service.IUserService;
 import com.franklin.techblog.entity.Users;
 import com.franklin.techblog.mapper.UserMapper;
 import com.franklin.techblog.dto.UserDto;
+import com.franklin.techblog.security.PasswordHasher;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -29,8 +30,11 @@ public class UserServiceImpl implements IUserService {
                 throw new UserAlreadyExistsException("Customer already registered with given mobileNumber "
                         +userDto.getMobileNumber());
             }
+         String Password=users.getPassword();
+             users.setPassword(PasswordHasher.hashPassword(Password));
             Users savedCustomer = userRepository.save(users);
        }
+
 
 
 
