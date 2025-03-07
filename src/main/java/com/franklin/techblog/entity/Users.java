@@ -23,6 +23,8 @@ import lombok.*;
 
         private String password;
 
+        private String username;
+
 
     }
 

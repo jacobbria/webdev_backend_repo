@@ -6,7 +6,7 @@ import com.franklin.techblog.dto.UserDto;
 
 public class UserMapper {
 
-    public static UserDto mapToCustomerDto(Users users, UserDto usersDto) {
+    public static UserDto mapToUserDto(Users users, UserDto usersDto) {
         usersDto.setName(users.getName());
         usersDto.setEmail(users.getEmail());
         usersDto.setMobileNumber(users.getMobileNumber());
@@ -14,11 +14,12 @@ public class UserMapper {
         return usersDto;
     }
 
-    public static Users mapToCustomer(UserDto userDto, Users users) {
+    public static Users mapToUser(UserDto userDto, Users users) {
         users.setName(userDto.getName());
         users.setEmail(userDto.getEmail());
         users.setMobileNumber(userDto.getMobileNumber());
         users.setPassword(userDto.getPassword());
+
         return users;
     }
 }

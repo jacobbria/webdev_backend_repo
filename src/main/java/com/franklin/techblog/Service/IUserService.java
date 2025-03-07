@@ -7,4 +7,7 @@ import org.springframework.stereotype.Service;
 public interface IUserService {
 
     void createAccount(UserDto userDto);
+
+    boolean authenticateUser(String usernameOrEmail, String password);
+
 }
