@@ -1,4 +1,4 @@
-package com.franklin.techblog.post.comment;
+package com.franklin.techblog.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import com.franklin.techblog.user.User;
+import com.franklin.techblog.model.User;
 
 /**
  * Represents a comment on a blog post

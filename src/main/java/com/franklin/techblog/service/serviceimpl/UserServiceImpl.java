@@ -1,8 +1,8 @@
-package com.franklin.techblog.Service.serviceimpl;
+package com.franklin.techblog.service.serviceimpl;
 
 import com.franklin.techblog.Exception.UserAlreadyExistsException;
-import com.franklin.techblog.Repository.UserRepository;
-import com.franklin.techblog.Service.IUserService;
+import com.franklin.techblog.repository.UserRepository;
+import com.franklin.techblog.service.IUserService;
 import com.franklin.techblog.entity.Users;
 import com.franklin.techblog.mapper.UserMapper;
 import com.franklin.techblog.dto.UserDto;
