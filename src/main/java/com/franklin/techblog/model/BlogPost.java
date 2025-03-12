@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import com.franklin.techblog.model.User;
+import com.franklin.techblog.entity.User;
 
 /**
  * Represents  a blog post
