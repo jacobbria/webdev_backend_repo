@@ -1,7 +1,6 @@
 package com.franklin.techblog.service;
 
-import com.franklin.techblog.dto.UserDto;
-import com.franklin.techblog.entity.User;
+import com.franklin.techblog.entity.BlogUser;
 import com.franklin.techblog.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,11 +14,11 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public List<User> getAllUsers() {
+    public List<BlogUser> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(Long id) {
+    public Optional<BlogUser> getUserById(Long id) {
         return userRepository.findById(id);
     }
 
@@ -27,14 +26,14 @@ public class UserService {
 //        return userRepository.save(user);
 //    }
 
-    public User updateUser(Long id, User updatedUser) {
+    public BlogUser updateUser(Long id, BlogUser updatedBlogUser) {
              return userRepository.findById(id)
                      .map(user -> {
-                        user.setName(updatedUser.getName());
-                        user.setEmail(updatedUser.getEmail());
-                        user.setMobileNumber(updatedUser.getMobileNumber());
-                        user.setRole(updatedUser.getRole());
-                        user.setPassword(updatedUser.getPassword());
+                        user.setName(updatedBlogUser.getName());
+                        user.setEmail(updatedBlogUser.getEmail());
+                        user.setMobileNumber(updatedBlogUser.getMobileNumber());
+                        user.setRole(updatedBlogUser.getRole());
+                        user.setPassword(updatedBlogUser.getPassword());
                         return userRepository.save(user);
                     })
                     .orElseThrow(() -> new RuntimeException("User not found"));

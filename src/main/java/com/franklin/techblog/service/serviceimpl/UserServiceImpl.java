@@ -1,7 +1,7 @@
 package com.franklin.techblog.service.serviceimpl;
 
 import com.franklin.techblog.Exception.UserAlreadyExistsException;
-import com.franklin.techblog.entity.User;
+import com.franklin.techblog.entity.BlogUser;
 import com.franklin.techblog.repository.UserRepository;
 import com.franklin.techblog.service.IUserService;
 import com.franklin.techblog.mapper.UserMapper;
@@ -22,27 +22,27 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void createAccount(UserDto userDto) {
-        User user = UserMapper.mapToUser(userDto, new User());
-        Optional<User> optionalCustomer = userRepository.findByMobileNumber(userDto.getMobileNumber());
+        BlogUser blogUser = UserMapper.mapToUser(userDto, new BlogUser());
+        Optional<BlogUser> optionalCustomer = userRepository.findByMobileNumber(userDto.getMobileNumber());
 
         if (optionalCustomer.isPresent()) {
             throw new UserAlreadyExistsException("Customer already registered with given mobileNumber "
                     + userDto.getMobileNumber());
         }
 
-        String password = user.getPassword();
-        user.setPassword(PasswordHasher.hashPassword(password));
-        user.setUsername(user.getEmail().split("@")[0]);
-        userRepository.save(user);
+        String password = blogUser.getPassword();
+        blogUser.setPassword(PasswordHasher.hashPassword(password));
+        blogUser.setUsername(blogUser.getEmail().split("@")[0]);
+        userRepository.save(blogUser);
     }
 
     @Override
     public boolean authenticateUser(String usernameOrEmail, String password) {
-        Optional<User> optionalUsers = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail);
+        Optional<BlogUser> optionalUsers = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail);
 
         if (optionalUsers.isPresent()) {
-            User user = optionalUsers.get();
-            return passwordVerifier.checkPassword(password, user.getPassword());
+            BlogUser blogUser = optionalUsers.get();
+            return passwordVerifier.checkPassword(password, blogUser.getPassword());
         }
         return false;
     }

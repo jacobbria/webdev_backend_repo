@@ -1,5 +1,6 @@
 package com.franklin.techblog.model;
 
+import com.franklin.techblog.entity.BlogUser;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -9,8 +10,6 @@ import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import com.franklin.techblog.entity.User;
 
 /**
  * Represents a comment on a blog post
@@ -29,9 +28,9 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User author;
+    private BlogUser author;
 
     @ManyToOne
     @JoinColumn(name = "blogpost_id")
-    private User blogPost;
+    private BlogUser blogPost;
 }

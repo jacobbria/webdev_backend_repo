@@ -1,6 +1,6 @@
 package com.franklin.techblog.controller;
 
-import com.franklin.techblog.entity.User;
+import com.franklin.techblog.entity.BlogUser;
 import com.franklin.techblog.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,17 +18,17 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
-        if (users.isEmpty()) {
+    public ResponseEntity<List<BlogUser>> getAllUsers() {
+        List<BlogUser> blogUsers = userService.getAllUsers();
+        if (blogUsers.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(users, HttpStatus.OK);
+        return new ResponseEntity<>(blogUsers, HttpStatus.OK);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        Optional<User> user = userService.getUserById(id);
+    public ResponseEntity<BlogUser> getUserById(@PathVariable Long id) {
+        Optional<BlogUser> user = userService.getUserById(id);
 
         return user.map(ResponseEntity::ok)
                    .orElseGet(() -> ResponseEntity.notFound().build());
@@ -41,9 +41,9 @@ public class UserController {
 //    }
 
     @PutMapping("{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
-        User updatedUser = userService.updateUser(id, user);
-        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    public ResponseEntity<BlogUser> updateUser(@PathVariable Long id, @RequestBody BlogUser blogUser) {
+        BlogUser updatedBlogUser = userService.updateUser(id, blogUser);
+        return new ResponseEntity<>(updatedBlogUser, HttpStatus.OK);
     }
 
     @DeleteMapping("{id}")
