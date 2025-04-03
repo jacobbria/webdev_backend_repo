@@ -21,8 +21,8 @@ https://docs.github.com/en/repositories/creating-and-managing-repositories/cloni
 ./mvnw spring-boot:run
 ```
 ### You should see these images in the terminal 
-![Screen Shot 2025-02-21 at 1 58 59 PM](https://github.com/user-attachments/assets/16ca7b06-6a6f-4a2c-801e-658ce6fd9f97)
-![Screen Shot 2025-02-21 at 1 59 53 PM](https://github.com/user-attachments/assets/89169084-40e3-4dd0-9869-b4f519f9b0f5)
+![Screen Shot 2025-02-21 at 1 58 59 PM](https://github.com/blogUser-attachments/assets/16ca7b06-6a6f-4a2c-801e-658ce6fd9f97)
+![Screen Shot 2025-02-21 at 1 59 53 PM](https://github.com/blogUser-attachments/assets/89169084-40e3-4dd0-9869-b4f519f9b0f5)
 
 Created on 2/12/25 by JB
 Worked on By BG, CJ

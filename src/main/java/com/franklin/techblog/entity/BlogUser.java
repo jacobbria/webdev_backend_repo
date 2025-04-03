@@ -1,4 +1,5 @@
 package com.franklin.techblog.entity;
+import com.franklin.techblog.model.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -7,7 +8,7 @@ import lombok.*;
 
     @Entity
     @Getter @Setter @ToString @AllArgsConstructor @NoArgsConstructor
-    public class Users  {
+    public class BlogUser {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +26,9 @@ import lombok.*;
 
         private String username;
 
-
+        @ManyToOne
+        @JoinColumn(name ="role_id")
+        private Role role;
     }
 
 

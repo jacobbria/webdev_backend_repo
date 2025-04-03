@@ -1,7 +1,6 @@
-package com.franklin.techblog.Service;
+package com.franklin.techblog.service;
 
 import com.franklin.techblog.dto.UserDto;
-import org.springframework.stereotype.Service;
 
 
 public interface IUserService {

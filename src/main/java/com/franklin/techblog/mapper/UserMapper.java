@@ -1,25 +1,25 @@
 package com.franklin.techblog.mapper;
 
-import com.franklin.techblog.entity.Users;
+import com.franklin.techblog.entity.BlogUser;
 import com.franklin.techblog.dto.UserDto;
 
 
 public class UserMapper {
 
-    public static UserDto mapToUserDto(Users users, UserDto usersDto) {
-        usersDto.setName(users.getName());
-        usersDto.setEmail(users.getEmail());
-        usersDto.setMobileNumber(users.getMobileNumber());
-        usersDto.setPassword(users.getPassword());
+    public static UserDto mapToUserDto(BlogUser blogUser, UserDto usersDto) {
+        usersDto.setName(blogUser.getName());
+        usersDto.setEmail(blogUser.getEmail());
+        usersDto.setMobileNumber(blogUser.getMobileNumber());
+        usersDto.setPassword(blogUser.getPassword());
         return usersDto;
     }
 
-    public static Users mapToUser(UserDto userDto, Users users) {
-        users.setName(userDto.getName());
-        users.setEmail(userDto.getEmail());
-        users.setMobileNumber(userDto.getMobileNumber());
-        users.setPassword(userDto.getPassword());
+    public static BlogUser mapToUser(UserDto userDto, BlogUser blogUser) {
+        blogUser.setName(userDto.getName());
+        blogUser.setEmail(userDto.getEmail());
+        blogUser.setMobileNumber(userDto.getMobileNumber());
+        blogUser.setPassword(userDto.getPassword());
 
-        return users;
+        return blogUser;
     }
 }

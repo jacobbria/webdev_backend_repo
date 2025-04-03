@@ -1,18 +1,12 @@
-package com.franklin.techblog.role;
+package com.franklin.techblog.model;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import com.franklin.techblog.user.User;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Represents a user's role

@@ -2,7 +2,7 @@ package com.franklin.techblog.controller;
 
 
 import com.franklin.techblog.Constants.UserConstants;
-import com.franklin.techblog.Service.IUserService;
+import com.franklin.techblog.service.IUserService;
 import com.franklin.techblog.dto.LoginRequestDto;
 import com.franklin.techblog.dto.ResponseDto;
 import com.franklin.techblog.dto.UserDto;
@@ -12,9 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.franklin.techblog.entity.Users;
-
-
 
 
 @RestController
