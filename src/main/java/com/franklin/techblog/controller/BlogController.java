@@ -1,6 +1,5 @@
 package com.franklin.techblog.controller;
 
-
 import com.franklin.techblog.Constants.UserConstants;
 import com.franklin.techblog.service.IUserService;
 import com.franklin.techblog.dto.LoginRequestDto;
@@ -13,27 +12,27 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
-@RequestMapping(path="/api", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(path = "/api", produces = { MediaType.APPLICATION_JSON_VALUE })
 @AllArgsConstructor
-
+@CrossOrigin(origins = "http://localhost:5173") // Solves CORS issue
 public class BlogController {
 
     private IUserService iUserService;
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createAccount(@Valid @RequestBody UserDto userDto) {
+        System.out.println("@@@@@ CALLED @@@@");
         iUserService.createAccount(userDto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(new ResponseDto(UserConstants.STATUS_201, UserConstants.MESSAGE_201));
     }
 
-
     @PostMapping("/login")
     public ResponseEntity<ResponseDto> login(@Valid @RequestBody LoginRequestDto loginRequest) {
-        boolean isAuthenticated = iUserService.authenticateUser(loginRequest.getUsernameOrEmail(), loginRequest.getPassword());
+        boolean isAuthenticated = iUserService.authenticateUser(loginRequest.getUsernameOrEmail(),
+                loginRequest.getPassword());
 
         if (isAuthenticated) {
             return ResponseEntity
@@ -45,13 +44,5 @@ public class BlogController {
                     .body(new ResponseDto(UserConstants.STATUS_401, "Invalid credentials!"));
         }
     }
-
-
-
-
-
-
-
-
 
 }

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path="/api/users")
+@RequestMapping(path = "/api/users")
 @AllArgsConstructor
 public class UserController {
 
@@ -19,8 +19,10 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<List<BlogUser>> getAllUsers() {
+        System.out.println("@@@@@ CALLED @@@@");
         List<BlogUser> blogUsers = userService.getAllUsers();
         if (blogUsers.isEmpty()) {
+            System.out.println("No Users in DB");
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(blogUsers, HttpStatus.OK);
@@ -29,16 +31,16 @@ public class UserController {
     @GetMapping("{id}")
     public ResponseEntity<BlogUser> getUserById(@PathVariable Long id) {
         Optional<BlogUser> user = userService.getUserById(id);
-
+        System.out.println(user.isEmpty());
         return user.map(ResponseEntity::ok)
-                   .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-//    @PostMapping
-//    public ResponseEntity<User> createUser(@RequestBody User user) {
-//        User newUser = userService.createUser(user);
-//        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
-//    }
+    // @PostMapping
+    // public ResponseEntity<User> createUser(@RequestBody User user) {
+    // User newUser = userService.createUser(user);
+    // return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+    // }
 
     @PutMapping("{id}")
     public ResponseEntity<BlogUser> updateUser(@PathVariable Long id, @RequestBody BlogUser blogUser) {
