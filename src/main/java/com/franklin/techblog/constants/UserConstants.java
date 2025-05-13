@@ -1,4 +1,4 @@
-package com.franklin.techblog.Constants;
+package com.franklin.techblog.constants;
 
 public class UserConstants {
     private UserConstants() {

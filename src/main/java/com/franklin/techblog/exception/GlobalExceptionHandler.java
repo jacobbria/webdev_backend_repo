@@ -1,4 +1,4 @@
-package com.franklin.techblog.Exception;
+package com.franklin.techblog.exception;
 import com.franklin.techblog.dto.ErrorResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
