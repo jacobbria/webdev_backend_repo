@@ -17,12 +17,11 @@ import java.util.List;
 @AllArgsConstructor
 public class UserController {
 
-    private final IUserService iUserService;
-    private final UserServiceImpl userService;
+    private final IUserService userService;
 
     @PostMapping("/register")
     public ResponseEntity<ResponseDto> createAccount(@Valid @RequestBody UserDto userDto) {
-        iUserService.createAccount(userDto);
+        userService.createAccount(userDto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(new ResponseDto(UserConstants.STATUS_201, UserConstants.MESSAGE_201));
@@ -30,7 +29,7 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<ResponseDto> login(@Valid @RequestBody LoginRequestDto loginRequest) {
-        boolean isAuthenticated = iUserService.authenticateUser(loginRequest.getUsernameOrEmail(), loginRequest.getPassword());
+        boolean isAuthenticated = userService.authenticateUser(loginRequest.getUsernameOrEmail(), loginRequest.getPassword());
 
         if (isAuthenticated) {
             return ResponseEntity
