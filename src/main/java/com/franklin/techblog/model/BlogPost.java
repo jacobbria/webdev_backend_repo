@@ -1,15 +1,14 @@
 package com.franklin.techblog.model;
 
 import com.franklin.techblog.entity.BlogUser;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedBy;
+
+import java.time.LocalDateTime;
 
 /**
  * Represents  a blog post
@@ -18,17 +17,25 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class BlogPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long blogpost_id;
 
     private String title;
-    private String content;
-    private String pictureURL;
 
+//    private String pictureURL;
+
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @CreatedBy
     @ManyToOne
     @JoinColumn(name = "user_id")
     private BlogUser author;
+
+    @Lob
+    @Column(columnDefinition = "TEXT")
+    private String content;
 }

@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class ErrorResponseDto {
 
 
-    private String apipath;
+    private String apiPath;
 
     private HttpStatus errorCode;
 
